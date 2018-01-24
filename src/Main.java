@@ -1,7 +1,16 @@
+import java.util.Scanner;
+
 public class Main {
 
     public static void main(String[] args) {
-	    hasDigits("abc123");
+	    Scanner input = new Scanner(System.in);
+	    String word;
+	    do{
+	        System.out.print("Type a word: ");
+            word = input.next();
+            System.out.printf("You typed %s\n", word);
+        }while(!word.equalsIgnoreCase("Stop"));
+	    input.close();
     }
     public static boolean hasDigits(String s){
         String allDigits = "0123456789";
