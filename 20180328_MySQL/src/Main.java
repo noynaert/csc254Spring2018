@@ -58,6 +58,7 @@ public class Main {
                 int lastSale = rs.getInt("lastSale");
                 Stock stk = new Stock(abbreviation, name, lastSale);
                 list.add(stk);
+                list.trimToSize();
             }
 
 
