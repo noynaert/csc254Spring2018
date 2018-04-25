@@ -46,5 +46,37 @@ public class Main {
         }
         System.out.println(pn.getId());
         */
+        //Starting to explore abstract ideas
+
+        //Can't do this:
+        Person pn;
+        //pn = new Person("Bob", 18);
+        pn = new Employee("Tom", 22, "000001", 10.00);
+        System.out.printf("%s's id is %s\n", pn.getName(), pn.getId());
+
+
+        AnonymousCustomer anon = new AnonymousCustomer();
+        Customer cust = (Customer)anon;
+        cust = (pn instanceof Customer) ? (Customer)pn : null;
+
+        ArrayList<Person> mob = new ArrayList<>();
+        mob.add(pn);
+        mob.add(new KnownCustomer("Jerry"));
+        mob.add(new KnownCustomer("Suzie", 23));
+        mob.add(new Employee("Sam",33,"000002" ,20.00));
+        mob.add(new AnonymousCustomer());
+        for(Person person : mob){
+            System.out.println("The mob includes " + person);
+        }
+
+        ArrayList<Discount> cheapskates = new ArrayList<>();
+        cheapskates.add(new Employee("Ted", 25, "000003", 15));
+        cheapskates.add(new KnownCustomer("Becky"));
+        //cheapskates.add(new AnonymousCustomer());
+        cheapskates.add(new Thing());
+
+        for(Discount d : cheapskates){
+            System.out.println(d + " Discount is " + d.calculateDiscount() );
+        }
     }
 }

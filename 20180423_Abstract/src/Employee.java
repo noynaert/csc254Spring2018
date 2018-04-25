@@ -1,4 +1,4 @@
-public class Employee extends Person {
+public class Employee extends Person implements Discount {
     private String id;
     private double hourlyPay;
     public Employee(String name, int age, String id, double hourlyPay){
@@ -14,5 +14,22 @@ public class Employee extends Person {
         return result;
     }
 
+    @Override
+    public String getId() {
+        return id;
+    }
 
+
+    @Override
+    public double calculateDiscount() {
+        double discount;
+        if(getAge()>65)
+            discount = 0.05;
+        else if(getAge() < 35)
+            discount = MAXIMUM_DISCOUNT;
+        else
+            discount = 0.10;
+
+        return discount;
+    }
 }
